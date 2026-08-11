@@ -1,0 +1,60 @@
+import java.util.Scanner;
+
+public class LinearSearch {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+
+        // Input
+        System.out.print("Enter number of elements: ");
+        int n = sc.nextInt();
+
+        int[] arr = new int[n];
+
+        System.out.println("Enter elements:");
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+
+        System.out.print("Enter element to search: ");
+        int target = sc.nextInt();
+
+        // Start Execution Time
+        long startTime = System.nanoTime();
+
+        // Linear Search
+        int result = -1;
+
+        for (int i = 0; i < n; i++) {
+
+            if (arr[i] == target) {
+                result = i;
+                break;
+            }
+        }
+
+        // End Execution Time
+        long endTime = System.nanoTime();
+
+        // Display Result
+        if (result != -1) {
+            System.out.println("\nElement found at index: " + result);
+        } else {
+            System.out.println("\nElement not found.");
+        }
+
+        // Complexity
+        System.out.println("\n--- Complexity ---");
+        System.out.println("Best Case    : O(1)");
+        System.out.println("Average Case : O(n)");
+        System.out.println("Worst Case   : O(n)");
+        System.out.println("Space        : O(1)");
+
+        // Execution Time
+        System.out.println("Execution Time: "
+                + (endTime - startTime) + " nanoseconds");
+
+        sc.close();
+    }
+}
